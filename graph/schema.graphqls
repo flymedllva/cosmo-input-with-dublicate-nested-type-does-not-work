@@ -1,0 +1,18 @@
+type Query {
+  test(filter: TestFilter, a: Int! = 10, b: Int! = 50): Int!
+}
+
+input TestFilter {
+  a: TestSubFilter
+  b: TestSubFilter
+}
+
+input TestSubFilter {
+  a: String
+  b: String
+}
+
+extend schema @link(
+  url: "https://specs.apollo.dev/federation/v2.3",
+  import: ["@external", "@requires", "@provides", "@key", "@shareable", "@inaccessible", "@tag", "@override", "@composeDirective", "@extends"]
+)
